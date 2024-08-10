@@ -109,24 +109,44 @@ function filterTable() {
   });
 }
 
-// Function to handle SMS sending to selected rows
-document.getElementById("sms-button").addEventListener("click", () => {
-  const selectedContacts = [];
-  const rows = document.querySelectorAll("#volunteer-table tbody tr");
 
-  rows.forEach((row) => {
-    const checkbox = row.querySelector(".row-checkbox");
-    if (checkbox.checked) {
-      const contact = row.children[2].textContent; // Get the contact number
-      selectedContacts.push(contact);
+document.getElementById("sms-button").addEventListener("click", async () => {
+    const selectedContacts = [];
+    const rows = document.querySelectorAll("#volunteer-table tbody tr");
+  
+    rows.forEach((row) => {
+      const checkbox = row.querySelector(".row-checkbox");
+      if (checkbox.checked) {
+        const contact = row.children[2].textContent.trim(); // Get the contact number
+        selectedContacts.push(contact);
+      }
+    });
+  console.log(selectedContacts)
+    if (selectedContacts.length > 0) {
+      // Prepare the data to send
+      const message = "Your message here"; // Customize your message
+      const data = {
+        to: selectedContacts,
+        from: 'AcmeInc',
+        text: message,
+      };
+  
+      try {
+        const response = await axios.post('https://gateway.seven.io/api/sms', new URLSearchParams(data), {
+          headers: {
+            'X-Api-Key': '97F81283D70d6B7b5C11Bd69d2c30f230590DD083fa73833E4BA900719f9db8f',
+            'Accept': 'application/json',
+          },
+        });
+  
+        console.log('Response:', response.data);
+        alert('SMS sent successfully!');
+      } catch (error) {
+        console.error('Error:', error.response ? error.response.data : error.message);
+        alert('Failed to send SMS.');
+      }
+    } else {
+      alert("No volunteers selected for SMS.");
     }
   });
-
-  if (selectedContacts.length > 0) {
-    console.log("Sending SMS to:", selectedContacts);
-    // Here you can integrate your SMS sending API
-    // e.g., sendSMS(selectedContacts);
-  } else {
-    alert("No volunteers selected for SMS.");
-  }
-});
+  

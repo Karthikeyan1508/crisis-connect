@@ -9,9 +9,12 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "axios": "^1.7.3",
     "body-parser": "^1.20.2",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
-    "firebase-admin": "^12.3.1"
+    "firebase-admin": "^12.3.1",
+    "i18n": "^0.15.1",
+    "react-multilingual-content": "^1.2.2"
   }
 }
