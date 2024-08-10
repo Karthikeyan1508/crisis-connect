@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Volunteer Registration</title>
+    <link rel="stylesheet" href="/volunteer.css" />
+    <script type="module" src="/volunteer.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Volunteer Registration</h1>
+      <form id="registrationForm">
+        <!-- Name Input -->
+        <input type="text" id="name" name="name" placeholder="Name" />
+
+        <!-- Contact Number Input -->
+        <input
+          type="text"
+          id="contact"
+          name="contact"
+          placeholder="Contact No."
+          required
+        />
+
+        <!-- Email ID Input -->
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email Id"
+          required
+        />
+
+        <!-- Location Button and Input -->
+        <button type="button" id="loc-btn">Get Location</button>
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" readonly />
+
+        <!-- Dropdown for Assistance Type -->
+        <label for="assistance-type">Assistance Type</label>
+        <select
+          id="assistance-type"
+          name="assistance-type"
+          aria-placeholder="Assistance Type"
+        >
+          <option value="Help at the Disaster Location">Help at the Disaster Location</option>
+          <option value="Financial Aid">Financial Aid</option>
+        </select>
+
+        <!-- Financial Aid Section (Initially Hidden) -->
+        <div id="financial-aid-section" class="hidden">
+          <!-- <label for="donation-amount">Amount in Rupees</label> -->
+          <div class="amount-donate-container">
+            <input
+              type="number"
+              id="donation-amount"
+              name="donation-amount"
+              placeholder="Enter amount"
+              min="1"
+            />
+            <button type="button" id="donate-button" onclick="window.location.href='https://buy.stripe.com/test_fZeeYq239fERewEaEE';">Donate</button>
+           
+          </div>
+        </div>
+
+        <button type="submit">SUBMIT</button>
+      </form>
+    </div>
+  </body>
+</html>

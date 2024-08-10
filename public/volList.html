@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Data</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/volList.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Volunteer Data</h1>
+
+        <!-- Filter Inputs -->
+        <div class="filter-container">
+            <input type="text" id="filter-name" placeholder="Filter by Name">
+            <input type="text" id="filter-location" placeholder="Filter by Location">
+            <select id="filter-assistance">
+                <option value="">Filter by Assistance Type</option>
+                <option value="financial">financial</option>
+                <option value="help">help</option>
+            </select>
+            <button id="select-all-filtered">SelectAll</button>
+            <button id="clear-all-button">ClearAll</button>
+        </div>
+
+        <!-- Volunteer Table -->
+        <table id="volunteer-table">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Email</th>
+                    <th>Location</th>
+                    <th>Assistance Type</th>
+                </tr>
+            </thead>
+            <tbody id="volunteer-table-body">
+                <!-- Data will be dynamically inserted here -->
+            </tbody>
+        </table>
+        <!-- Add this just after the table -->
+        <button id="sms-button">Alert All!</button>
+    </div>
+    <script type="module" src="volunteerTable.js"></script>
+</body>
+</html>

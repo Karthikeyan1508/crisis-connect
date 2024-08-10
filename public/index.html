@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      user-scalable="no"
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>CrisisConnect</title>
+  </head>
+
+  <body>
+    <div class="preloader">
+      <div class="spinner"></div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const preloader = document.querySelector(".preloader");
+        preloader.style.display = "flex";
+        setTimeout(() => {
+          preloader.style.display = "none";
+        }, 500);
+      });
+    </script>
+    <nav>
+      <div class="logo">
+        <div class="text" id="title">
+          <strong>Crisis Connect</strong>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Features</a>
+        <a href="/tutorial.html">Tutorials</a>
+        <a href="/weather.html">Weather Dashboard</a>
+        <a href="/volunteer.html">Volunteer!</a>
+        <a href="#">Contact Us</a>
+        <!-- <button id="loc-btn"></button> -->
+        <button id="login-button">Log In</button>
+        <img
+          id="profile-pic"
+          src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541"
+          alt="Profile Picture"
+        />
+      </div>
+      <div class="hamburger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <script>
+        const hamburgerMenu = document.querySelector(".hamburger-menu");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburgerMenu.addEventListener("click", () => {
+          navLinks.classList.toggle("active");
+        });
+      </script>
+    </nav>
+
+      <section class="hero" id="hero">
+      <h1>CrisisConnect</h1>
+
+      <h1 id="hero-head"></h1>
+      <p>Where Emergency meets Expertise!</p>
+    </section>
+
+    <section class="hero" id="articles">
+      <h1>Lorem Ipsum</h1>
+      <p>Explore | Engage | Evolve</p>
+      <div class="mega-gal" id="mega-clubs">
+        <div class="gallery" id="club1">
+          <img src="https://placehold.co/00" alt="Club 1" />
+          <p>Club 1</p>
+        </div>
+        <div class="gallery" id="club2">
+          <img src="https://placehold.co/00" alt="Club 2" />
+          <p>Club 2</p>
+        </div>
+        <div class="gallery" id="club3">
+          <img src="https://placehold.co/00" alt="Club 3" />
+          <p>Club 3</p>
+        </div>
+        <div class="gallery" id="club4">
+          <img src="https://placehold.co/00" alt="Club 4" />
+          <p>Club 4</p>
+        </div>
+        <div class="gallery" id="club5">
+          <img src="https://placehold.co/00" alt="Club 5" />
+          <p>Club 5</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog">
+      <!-- heading -->
+      <div class="blog-heading">
+        <span>Disaster Coverage</span>
+        <h3>Incidents Reported</h3>
+      </div>
+
+      <!-- blog container -->
+      <div class="blog-container">
+        <!-- box 1 -->
+        <div class="blog-box">
+          <!-- images -->
+          <div class="blog-img">
+            <img src="images/blog-1.jpeg.jpg" alt="Blog" />
+          </div>
+          <!-- text -->
+          <div class="blog-text">
+            <span>18 July 2021</span>
+            <a href="#" class="blog-title"
+              >What has Happened in today's Hackathon?</a
+            >
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu
+              feugiat ante. Curabitur luctus mauris diam, sit amet iaculis mi
+              posuere id.
+            </p>
+            <a href="#">Read More...</a>
+          </div>
+        </div>
+        <!-- box 2 -->
+        <div class="blog-box">
+          <!-- images -->
+          <div class="blog-img">
+            <img src="images/blog-2.jpeg.jpg" alt="Blog" />
+          </div>
+          <!-- text -->
+          <div class="blog-text">
+            <span>18 July 2021</span>
+            <a href="#" class="blog-title"
+              >What has Happened in today's Hackathon?</a
+            >
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu
+              feugiat ante. Curabitur luctus mauris diam, sit amet iaculis mi
+              posuere id.
+            </p>
+            <a href="#">Read More...</a>
+          </div>
+        </div>
+        <!-- box 3 -->
+        <div class="blog-box">
+          <!-- images -->
+          <div class="blog-img">
+            <img src="images/blog-3.jpeg.jpg" alt="Blog" />
+          </div>
+          <!-- text -->
+          <div class="blog-text">
+            <span>18 July 2021</span>
+            <a href="#" class="blog-title"
+              >What has Happened in today's Hackathon?</a
+            >
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu
+              feugiat ante. Curabitur luctus mauris diam, sit amet iaculis mi
+              posuere id.
+            </p>
+            <a href="#">Read More...</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero" id="gallery">
+      <h1>Upcoming Events</h1>
+      <p></p>
+      <div class="mega-gal">
+        <div class="gallery" id="event1">
+          <img
+            src="https://placehold.co/700"
+            alt="Event 1"
+            width="600"
+            height="400"
+          />
+          <div class="text">
+            <div class="desc"><strong>Event 1</strong></div>
+            <div class="reg">Register&rarr;</div>
+          </div>
+        </div>
+
+        <div class="gallery" id="event2">
+          <img
+            src="https://placehold.co/700"
+            alt="Event 2"
+            width="600"
+            height="400"
+          />
+          <div class="text">
+            <div class="desc"><strong>Event 2</strong></div>
+            <div class="reg">Register&rarr;</div>
+          </div>
+        </div>
+
+        <div class="gallery" id="event3">
+          <img
+            src="https://placehold.co/700"
+            alt="Event 3"
+            width="600"
+            height="400"
+          />
+          <div class="text">
+            <div class="desc"><strong>Event 3</strong></div>
+            <div class="reg">Register&rarr;</div>
+          </div>
+        </div>
+
+        <div class="gallery" id="event4">
+          <img
+            src="https://placehold.co/700"
+            alt="Event 4"
+            width="600"
+            height="400"
+          />
+          <div class="text">
+            <div class="desc"><strong>Event 4</strong></div>
+            <div class="reg">Register&rarr;</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero" id="accordion">
+      <div class="accordion">
+        <h1>Frequently Asked Questions</h1>
+        <div class="accordion-item">
+          <input type="checkbox" id="accordion1" />
+          <label for="accordion1" class="accordion-item-title">
+            <span class="icon"></span>How can I stay updated on club activities
+            and events?
+          </label>
+          <div class="accordion-item-desc">
+            Frequently using our website and checking updates that are displayed
+            will help you in finding events that you want to take part in.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <input type="checkbox" id="accordion2" />
+          <label for="accordion2" class="accordion-item-title">
+            <span class="icon"></span>What resources does the club provide for
+            its members?
+          </label>
+          <div class="accordion-item-desc">
+            Please go to the respective club section of the club's resources you
+            want to access. Then a new page will open containing a list of
+            events they've conducted and also the upcoming events.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <input type="checkbox" id="accordion3" />
+          <label for="accordion3" class="accordion-item-title">
+            <span class="icon"></span>How can I propose an event idea to a club?
+          </label>
+          <div class="accordion-item-desc">
+            Go to the comment section of the respective club, then pitch your
+            idea to let the organizers and team head contact you.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <input type="checkbox" id="accordion4" />
+          <label for="accordion4" class="accordion-item-title">
+            <span class="icon"></span>What are the benefits of participating in
+            club events?
+          </label>
+          <div class="accordion-item-desc">
+            You get to learn and make new friends, develop your communication
+            skills, and make moments to cherish for a lifetime.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <input type="checkbox" id="accordion5" />
+          <label for="accordion5" class="accordion-item-title">
+            <span class="icon"></span>How do I register for upcoming club
+            events?
+          </label>
+          <div class="accordion-item-desc">
+            Go to the club section of our website and navigate to the upcoming
+            event you want to participate in. Click on the register option and
+            you're done. Look for the event appearing on your calendar.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>By Team - SCRIPTGAZERS</footer>
+
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js"
+    ></script>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js"
+    ></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
