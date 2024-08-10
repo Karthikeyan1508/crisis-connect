@@ -421,79 +421,79 @@ footer {
     flex-direction: column;
     padding: 40px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    
-  }
-  
-  .blog-heading {
+}
+
+.blog-heading {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    
-  }
-  
-  .blog-heading span {
+}
+
+.blog-heading span {
     color: #1b4332;
-  }
-  
-  .blog-heading h3 {
+}
+
+.blog-heading h3 {
     font-size: 2.4rem;
     color: #081c15;
     font-weight: 600;
-  }
-  
-  .blog-container {
+}
+
+.blog-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px 0px;
+    margin: 20px 0;
     flex-wrap: wrap;
-  }
-  
-  .blog-box {
+}
+
+.blog-box {
     width: 350px;
     background-color: #ffffff;
     border: 1px solid #ecec;
     margin: 20px;
     border-radius: 5%;
-  }
-  
-  .blog-img {
+}
+
+.blog-img {
     width: 100%;
     height: auto;
-  }
-  
-  .blog-img img {
+}
+
+.blog-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
     border-radius: 5% 5% 0 0;
-  }
-  
-  .blog-text {
+}
+
+.blog-text {
     padding: 30px;
     display: flex;
     flex-direction: column;
-  }
-  
-  .blog-text span {
+}
+
+.blog-text span {
     color: #40916c;
+    margin-bottom: 10px;
     font-size: 0.9rem;
-  }
-  
-  .blog-text .blog-title {
+}
+
+.blog-text .blog-title {
     font-size: 1.3rem;
     font-weight: 500;
     color: #081c15;
-  }
-  
-  .blog-text .blog-title:hover {
+    text-decoration: none;
+}
+
+.blog-text .blog-title:hover {
     color: #2d6a4f;
     transition: all ease 0.3s;
-  }
-  
-  .blog-text p {
+}
+
+.blog-text p {
     color: rgb(99, 99, 99);
     font-size: 0.9rem;
     display: -webkit-box;
@@ -501,37 +501,37 @@ footer {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin: 20px 0px;
-  }
-  
-  .blog-text a {
+    margin: 20px 0;
+}
+
+.blog-text a {
     color: #081c15;
-  }
-  
-  .blog-text a:hover {
+    text-decoration: none;
+}
+
+.blog-text a:hover {
     color: #2d6a4f;
     transition: all ease 0.3s;
-  }
-  
-  @media (max-width: 1250px) {
+}
+
+@media (max-width: 1250px) {
     .blog-box {
-      width: 300px;
+        width: 300px;
     }
-  }
-  
-  @media (max-width: 1100px) {
+}
+
+@media (max-width: 1100px) {
     .blog-box {
-      width: 70%;
+        width: 70%;
     }
-  }
-  
-  @media (max-width: 550px) {
+}
+
+@media (max-width: 550px) {
     .blog-box {
-      margin: 20px 10px;
-      width: 100%;
+        margin: 20px 10px;
+        width: 100%;
     }
     #blog {
-      padding: 20px;
+        padding: 20px;
     }
-  }
-  
+}

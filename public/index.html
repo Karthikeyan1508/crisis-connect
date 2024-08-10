@@ -95,76 +95,76 @@
     </section>
 
     <section id="blog">
-      <!-- heading -->
-      <div class="blog-heading">
-        <span>Disaster Coverage</span>
-        <h3>Incidents Reported</h3>
-      </div>
+        <div class="blog-heading">
+            <span>Disaster Coverage</span>
+            <h3>Incidents Reported</h3>
+        </div>
 
-      <!-- blog container -->
-      <div class="blog-container">
-        <!-- box 1 -->
-        <div class="blog-box">
-          <!-- images -->
-          <div class="blog-img">
-            <img src="images/blog-1.jpeg.jpg" alt="Blog" />
-          </div>
-          <!-- text -->
-          <div class="blog-text">
-            <span>18 July 2021</span>
-            <a href="#" class="blog-title"
-              >What has Happened in today's Hackathon?</a
-            >
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu
-              feugiat ante. Curabitur luctus mauris diam, sit amet iaculis mi
-              posuere id.
-            </p>
-            <a href="#">Read More...</a>
-          </div>
-        </div>
-        <!-- box 2 -->
-        <div class="blog-box">
-          <!-- images -->
-          <div class="blog-img">
-            <img src="images/blog-2.jpeg.jpg" alt="Blog" />
-          </div>
-          <!-- text -->
-          <div class="blog-text">
-            <span>18 July 2021</span>
-            <a href="#" class="blog-title"
-              >What has Happened in today's Hackathon?</a
-            >
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu
-              feugiat ante. Curabitur luctus mauris diam, sit amet iaculis mi
-              posuere id.
-            </p>
-            <a href="#">Read More...</a>
-          </div>
-        </div>
-        <!-- box 3 -->
-        <div class="blog-box">
-          <!-- images -->
-          <div class="blog-img">
-            <img src="images/blog-3.jpeg.jpg" alt="Blog" />
-          </div>
-          <!-- text -->
-          <div class="blog-text">
-            <span>18 July 2021</span>
-            <a href="#" class="blog-title"
-              >What has Happened in today's Hackathon?</a
-            >
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu
-              feugiat ante. Curabitur luctus mauris diam, sit amet iaculis mi
-              posuere id.
-            </p>
-            <a href="#">Read More...</a>
-          </div>
-        </div>
-      </div>
+        <div id="blog-container" class="blog-container"></div>
     </section>
+
+    <script>
+        async function fetchNews() {
+            const url = "https://newsdata.io/api/1/news?apikey=pub_50578c1c61acdd7ee65508179ce4d05815e81&qInTitle=natural%20disasters&country=in";
+            const options = { method: "GET" };
+
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json();
+                console.log(result)
+                displayNews(result);
+            } catch (error) {
+                console.error("Error fetching news:", error);
+                document.getElementById("blog-container").textContent = "Failed to load news articles.";
+            }
+        }
+
+        function displayNews(news) {
+            const blogContainer = document.getElementById("blog-container");
+            blogContainer.innerHTML = "";
+
+            if (news.results && news.results.length > 0) {
+                news.results.slice(1, 4).forEach((article, index) => {
+                    const blogBox = document.createElement("div");
+                    blogBox.classList.add("blog-box");
+
+                    const blogImgDiv = document.createElement("div");
+                    blogImgDiv.classList.add("blog-img");
+                    const blogImg = document.createElement("img");
+                    blogImg.src = article.image_url;
+                    blogImg.alt = "Blog";
+                    blogImgDiv.appendChild(blogImg);
+
+                    const blogTextDiv = document.createElement("div");
+                    blogTextDiv.classList.add("blog-text");
+                    const blogSource = document.createElement("span");
+                    blogSource.textContent = article.source_id || "Unknown Source";
+                    const blogTitle = document.createElement("a");
+                    // blogTitle.href = article.url;
+                    blogTitle.textContent = article.title;
+                    blogTitle.classList.add("blog-title");
+                    const blogDesc = document.createElement("p");
+                    blogDesc.textContent = article.description || "No description available.";
+                    const readMore = document.createElement("a");
+                    readMore.href = article.source_url;
+                    readMore.textContent = "Read More...";
+
+                    blogTextDiv.appendChild(blogSource);
+                    blogTextDiv.appendChild(blogTitle);
+                    blogTextDiv.appendChild(blogDesc);
+                    blogTextDiv.appendChild(readMore);
+
+                    blogBox.appendChild(blogImgDiv);
+                    blogBox.appendChild(blogTextDiv);
+                    blogContainer.appendChild(blogBox);
+                });
+            } else {
+                blogContainer.textContent = "No news articles found.";
+            }
+        }
+
+        fetchNews();
+    </script>
 
     <section class="hero" id="gallery">
       <h1>Upcoming Events</h1>
