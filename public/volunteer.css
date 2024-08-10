@@ -8,13 +8,13 @@ body {
 }
 
 .container {
-    max-width: 400px; /* Reduced container width */
+    max-width: 400px;
     margin: 50px auto;
     padding: 20px;
-    border: 1px solid var(--border-color); /* Added border to the container */
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff; /* Set background color to white for contrast */
+    background-color: #fff;
 }
 
 h1 {
@@ -25,47 +25,149 @@ h1 {
 form {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center form elements */
+    align-items: center;
 }
 
 label {
     margin: 10px 0 5px;
     color: var(--text-color);
-    width: 100%; /* Full width for labels */
-    text-align: center; /* Center label text */
+    width: 100%;
+    text-align: center;
 }
 
-input {
+input, select {
     padding: 10px;
-    margin-bottom: 15px; /* Reduced margin for better spacing */
+    margin-bottom: 15px;
     border: 1px solid var(--border-color);
     border-radius: 4px;
     font-size: 16px;
     color: var(--text-color);
     background-color: #f9f9f9;
-    width: 80%; /* Full width of the form */
-    max-width: 400px; /* Reduced width for textboxes */
+    width: 80%;
+    max-width: 400px;
 }
 
-input:focus {
+input:focus, select:focus {
     border-color: var(--text-highlight);
     outline: none;
     background-color: #fff;
 }
 
-button {
-    padding: 8px 16px; /* Reduced button width */
+/* Container for aligning amount input and donate button */
+.amount-donate-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Adjust the donation amount input */
+#donation-amount {
+    text-align: center;
+    width: 60%; /* Adjust width as needed */
+    margin-right: 10px; /* Space between input and button */
+    padding: 10px; /* Ensure padding matches the button */
+    box-sizing: border-box; /* Include padding and border in element's width and height */
+    height: 40px; /* Set a fixed height */
+    font-size: 16px; /* Ensure font size matches the button */
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+/* Adjust the donate button */
+#donate-button {
+    padding: 10px 20px;
     background-color: var(--text-highlight);
     border: none;
     color: #fff;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 14px;
-    display: block;
-    width: 30%; /* Full width of the form */
-    max-width: 200px; /* Reduced button width */
-    margin-top: 10px; /* Margin to separate from the textboxes */
+    font-size: 16px; /* Ensure font size matches the input */
+    height: 40px; /* Set a fixed height to match the input */
+    line-height: 20px; /* Align text vertically within the button */
+    display: flex;
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    box-sizing: border-box; /* Include padding and border in element's width and height */
 }
+
+/* Button hover effect */
+#donate-button:hover {
+    background-color: var(--text-hover);
+}
+
+
+
+/* Adjust padding for the select dropdown */
+select {
+    padding-right: 40px; 
+ 
+}
+
+/* Adjust button styles */
+button {
+    padding: 12px 16px;
+    background-color: var(--text-highlight);
+    border: none;
+    margin: 20px;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 30%;
+    max-width: 200px;
+    font-size: 16px;
+}
+
+.amount-donate-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+    margin-bottom: 15px;
+}
+
+/* Adjust the donation amount input */
+#donation-amount {
+    text-align: center;
+    width: 50%; /* Adjust width as needed */
+    /* margin-right: 1px; Space between input and button */
+    padding: 10px; /* Ensure padding matches the button */
+    box-sizing: border-box; /* Include padding and border in element's width and height */
+    margin-left: 25px;
+    height: 40px; /* Set a fixed height */
+    font-size: 16px; /* Ensure font size matches the button */
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+/* Adjust the donate button */
+#donate-button {
+    padding: 10px 20px;
+    background-color: var(--text-highlight);
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 16px; /* Ensure font size matches the input */
+    height: 40px; /* Set a fixed height to match the input */
+    line-height: 20px; /* Align text vertically within the button */
+    display: flex;
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    box-sizing: border-box; /* Include padding and border in element's width and height */
+}
+
+/* Button hover effect */
+#donate-button:hover {
+    background-color: var(--text-hover);
+}
+
+    
+
 
 button:hover {
     background-color: var(--text-hover);
@@ -76,38 +178,41 @@ button:disabled {
     cursor: not-allowed;
 }
 
-@media (max-width: 768px) {
+.hidden {
+    display: none;
+}
+
+/* Media queries */
+/* @media (max-width: 768px) {
     .container {
         padding: 15px;
     }
-
-    input, button {
-        width: 100%; /* Full width on smaller screens */
-        max-width: 100%; /* Remove max-width on smaller screens */
+    input, select, button {
+        width: 100%;
+        max-width: 100%;
     }
 }
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 1.5em; /* Adjust heading size on very small screens */
+        font-size: 1.5em;
     }
-
-    input, button {
-        padding: 10px; /* Adjust padding for smaller screens */
-        font-size: 16px; /* Adjust font size for better readability */
+    input, select, button {
+        padding: 10px;
+        font-size: 16px;
     }
-}
+} */
 
 :root {
-    --primary-bg: #B7E4C7;  /* Slightly darker green for primary background */
-    --secondary-bg: #95D5B2;  /* Medium green for secondary background */
-    --highlight-bg: #74C69D;  /* Darker green for highlights */
-    --text-color: #081C15;  /* Very dark green for text */
-    --text-highlight: #40916C;  /* Dark green for highlighted text */
-    --text-hover: #2D6A4F;  /* Darker green for text on hover */
-    --text-active: #1B4332;  /* Deep green for active text */
-    --border-color: #081C15;  /* Very dark green for borders */
-    --border-hover: #081C15;  /* Same very dark green for border on hover */
+    --primary-bg: #B7E4C7;
+    --secondary-bg: #95D5B2;
+    --highlight-bg: #74C69D;
+    --text-color: #081C15;
+    --text-highlight: #40916C;
+    --text-hover: #2D6A4F;
+    --text-active: #1B4332;
+    --border-color: #081C15;
+    --border-hover: #081C15;
     
     --scrollbar-thumb: rgba(131, 127, 127, 0.8);
     --scrollbar-thumb-inactive: rgba(233, 233, 233, 0.4);

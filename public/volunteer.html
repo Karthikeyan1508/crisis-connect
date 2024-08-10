@@ -1,35 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Volunteer Registration</title>
-    <link rel="stylesheet" href="volunteer.css">
-    <script type="module" src="volunteer.js"></script>
-</head>
-
-<body>
+    <link rel="stylesheet" href="volunteer.css" />
+    <script type="module" src="volunteer.js" defer></script>
+  </head>
+  <body>
     <div class="container">
-        <h1>Volunteer Registration</h1>
-        <form id="registrationForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+      <h1>Volunteer Registration</h1>
+      <form id="registrationForm">
+        <!-- Name Input -->
+        <input type="text" id="name" name="name" placeholder="Name" />
 
-            <label for="contact">Contact Number:</label>
-            <input type="text" id="contact" name="contact" required>
+        <!-- Contact Number Input -->
+        <input
+          type="text"
+          id="contact"
+          name="contact"
+          placeholder="Contact No."
+          required
+        />
 
-            <label for="email">Email ID:</label>
-            <input type="email" id="email" name="email" required>
+        <!-- Email ID Input -->
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email Id"
+          required
+        />
 
-            <button type="button" id="loc-btn">Get Location</button>
+        <!-- Location Button and Input -->
+        <button type="button" id="loc-btn">Get Location</button>
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" readonly />
 
-            <label for="location">Location:</label>
-            <input type="text" id="location" name="location" readonly>
+        <!-- Dropdown for Assistance Type -->
+        <label for="assistance-type">Assistance Type</label>
+        <select
+          id="assistance-type"
+          name="assistance-type"
+          aria-placeholder="Assistance Type"
+        >
+          <option value="Help at the Disaster Location">Help at the Disaster Location</option>
+          <option value="Financial Aid">Financial Aid</option>
+        </select>
 
-            <button type="submit">Submit</button>
-        </form>
+        <!-- Financial Aid Section (Initially Hidden) -->
+        <div id="financial-aid-section" class="hidden">
+          <!-- <label for="donation-amount">Amount in Rupees</label> -->
+          <div class="amount-donate-container">
+            <input
+              type="number"
+              id="donation-amount"
+              name="donation-amount"
+              placeholder="Enter amount"
+              min="1"
+            />
+            <button type="button" id="donate-button" onclick="window.location.href='https://buy.stripe.com/test_fZeeYq239fERewEaEE';">Donate</button>
+           
+          </div>
+        </div>
+
+        <button type="submit">SUBMIT</button>
+      </form>
     </div>
-</body>
-
+  </body>
 </html>
