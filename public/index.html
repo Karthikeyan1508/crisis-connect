@@ -131,7 +131,7 @@
                     const blogImgDiv = document.createElement("div");
                     blogImgDiv.classList.add("blog-img");
                     const blogImg = document.createElement("img");
-                    blogImg.src = article.image_url;
+                    blogImg.src = article.image_url || "https://placehold.co/600x400";
                     blogImg.alt = "Blog";
                     blogImgDiv.appendChild(blogImg);
 
