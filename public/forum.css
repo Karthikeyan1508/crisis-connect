@@ -23,26 +23,30 @@ body {
 .container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     padding: 20px;
-    height: 100vh;
     box-sizing: border-box;
     gap: 20px;
 }
 
-.posts {
-    flex: 2;
+.posts, .form-container {
     background-color: #ffffff;
     border-radius: 10px;
     padding: 20px;
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
+    flex: 1 1 100%;
+    min-width: 300px;
 }
 
-.posts h2 {
+.posts {
+    flex: 2;
+}
+
+.posts h2, .form-container h2 {
     color: var(--text-color);
     margin-top: 0;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     border-bottom: 2px solid var(--highlight-bg);
     padding-bottom: 10px;
 }
@@ -51,7 +55,6 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: space-between;
     padding: 0;
     margin: 0;
 }
@@ -60,7 +63,7 @@ body {
     width: calc(33.33% - 20px);
     background-color: #ffffff;
     border: 1px solid var(--primary-bg);
-    border-radius: 12px; /* Slightly more rounded corners */
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -70,7 +73,7 @@ body {
 }
 
 .card:hover {
-    transform: translateY(-8px); /* Enhanced hover effect */
+    transform: translateY(-8px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
@@ -78,16 +81,15 @@ body {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-bottom: 4px solid var(--highlight-bg); /* Single blue line below image */
+    border-bottom: 4px solid var(--highlight-bg);
 }
 
 .card .category {
     background-color: var(--highlight-bg);
     color: #ffffff;
-    padding: 5px 12px; /* Slightly larger padding */
+    padding: 5px 12px;
     text-align: center;
-    /* font-weight: bold; */
-    font-size: 1rem; /* Adjusted font size */
+    font-size: 0.9rem;
     border-radius: 4px;
     position: absolute;
     top: 10px;
@@ -96,55 +98,27 @@ body {
 }
 
 .card .card-content {
-    padding: 20px; /* Increased padding for better spacing */
+    padding: 20px;
     background: #ffffff;
     position: relative;
 }
 
 .card .heading {
-    font-size: 1.4rem; /* Slightly larger font size */
-    font-weight: 600; /* Increased font weight for emphasis */
+    font-size: 1.2rem;
+    font-weight: 600;
     color: var(--text-color);
     overflow: hidden;
-    margin-bottom: 15px; /* Increased space below the heading */
-    line-height: 1.5; /* Improved line height for readability */
+    margin-bottom: 10px;
+    line-height: 1.4;
 }
 
-.card .author {
-    font-size: 1rem; /* Increased font size */
+.card .author, .card .timestamp, .card .location {
+    font-size: 0.9rem;
     color: var(--text-highlight);
-    margin-bottom: 10px; /* Increased space below the author */
+    margin-bottom: 8px;
 }
 
-.card .timestamp {
-    font-size: 0.9rem; /* Increased font size */
-    color: var(--text-color);
-}
-
-.card .location {
-    font-size: 0.9rem; /* Increased font size */
-    color: var(--text-color);
-}
-
-
-.form-container {
-    flex: 1;
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 20px;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.form-container h2 {
-    color: var(--text-color);
-    margin-top: 0;
-    font-size: 1.8rem;
-    border-bottom: 2px solid var(--highlight-bg);
-    padding-bottom: 10px;
-}
-
-form label {
+.form-container label {
     display: block;
     margin: 10px 0 5px;
     color: var(--text-color);
@@ -183,7 +157,6 @@ button:hover {
 #location {
     flex: 1;
     padding-right: 10px;
-   
 }
 
 #get-location {
@@ -202,13 +175,32 @@ button:hover {
     background-color: var(--text-hover);
 }
 
-@media (max-width: 768px) {
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
     .card {
         width: calc(50% - 20px);
     }
 }
 
+@media (max-width: 768px) {
+    .card {
+        width: calc(100% - 20px);
+    }
+
+    .container {
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .posts, .form-container {
+        padding: 15px;
+    }
+
     .card {
         width: 100%;
     }
