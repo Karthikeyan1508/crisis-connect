@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disaster Coverage</title>
+    <link rel="stylesheet" href="/forum.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="posts">
+        <h2>Forums</h2>
+        <div class="card-container">
+          <!-- Cards will be dynamically injected here -->
+        </div>
+      </div>
+
+      <div class="form-container">
+        <h2>Upload Post</h2>
+        <form id="uploadform">
+          <label for="disaster-type">Type of Disaster</label>
+          <input type="text" id="disaster-type" required />
+          <label for="post-location">Exact Location</label>
+          <div class="location-wrapper">
+            <input type="text" id="post-location" />
+            <button type="button" id="loc-btn">Get Location</button>
+          </div>
+
+          <label for="post-image">Image</label>
+          <input type="file" id="post-image" accept="image/*" required />
+
+          <label for="post-description">Description</label>
+          <textarea id="post-description" rows="4" required></textarea>
+
+          <button type="button" id="upload-button">Submit</button>
+        </form>
+      </div>
+    </div>
+    <script type="module" src="/forum.js"></script>
+  </body>
+</html>

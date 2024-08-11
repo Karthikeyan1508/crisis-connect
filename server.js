@@ -21,42 +21,36 @@ function serveFile(filePath, contentType, res) {
 // Create an HTTP server
 http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url);
-  let pathname = `./public${parsedUrl.pathname}`;
-  
-  // Default to serving index.html if the path is '/'
-  if (parsedUrl.pathname === '/') {
-    pathname = path.join(__dirname, 'public', 'index.html');
-  } else if (parsedUrl.pathname === '/weather.html') {
-    pathname = path.join(__dirname, 'public', 'weather.html');
-  }else if (parsedUrl.pathname === '/volunteer.html') {
-    pathname = path.join(__dirname, 'public', 'volunteer.html');
-  }else if (parsedUrl.pathname === '/volList.html') {
-    pathname = path.join(__dirname, 'public', 'volList.html');
-  }else if (parsedUrl.pathname === '/tutorial.html') {
-    pathname = path.join(__dirname, 'public', 'tutorial.html');
-  }
+  let pathname = path.join(__dirname, 'public', parsedUrl.pathname === '/' ? 'index.html' : parsedUrl.pathname);
 
-  const extname = path.extname(pathname);
-  let contentType = 'text/html';
+  // Check if file exists
+  fs.access(pathname, fs.constants.F_OK, (err) => {
+    if (err) {
+      res.writeHead(404);
+      res.end('File not found');
+      return;
+    }
 
-  switch (extname) {
-    case '.js':
-      contentType = 'application/javascript';
-      break;
-    case '.css':
-      contentType = 'text/css';
-      break;
-    case '.jpg':
-      contentType = 'image/jpeg';
-      break;
-    case '.png':
-      contentType = 'image/png';
-      break;
-    default:
-      contentType = 'text/html';
-  }
+    const extname = path.extname(pathname);
+    let contentType = 'text/html';
 
-  serveFile(pathname, contentType, res);
+    switch (extname) {
+      case '.js':
+        contentType = 'application/javascript';
+        break;
+      case '.css':
+        contentType = 'text/css';
+        break;
+      case '.jpg':
+        contentType = 'image/jpeg';
+        break;
+      case '.png':
+        contentType = 'image/png';
+        break;
+    }
+
+    serveFile(pathname, contentType, res);
+  });
 }).listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}/`);
 });

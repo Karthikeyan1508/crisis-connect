@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Handle location detection
 const loc_btn = document.getElementById("loc-btn");
-const RAPIDAPI_KEY = "e4bdaf8f0dmsh8eae740b5f8a211p1e3c4cjsnca0099c565df"; // Replace with your RapidAPI key
+const RAPIDAPI_KEY = "67ad76fbb9msh66ac2bd2a0c8148p193f12jsn0d94efd42d97"; // Replace with your RapidAPI key
 
 loc_btn.addEventListener("click", () => {
     if (navigator.geolocation) {
@@ -42,7 +42,7 @@ loc_btn.addEventListener("click", () => {
 async function onSuccess(position) {
     loc_btn.innerText = "Detecting your location...";
     let { latitude, longitude } = position.coords;
-    console.log(`Latitude: ${latitude}, Longitude: ${longitude}`); // Debugging
+    //console.log(`Latitude: ${latitude}, Longitude: ${longitude}`); // Debugging
 
     const url = `https://map-geocoding.p.rapidapi.com/json?latlng=${latitude}%2C${longitude}`;
     const options = {
@@ -54,10 +54,10 @@ async function onSuccess(position) {
     };
 
     try {
-        console.log("Making API request..."); // Debugging
+        //console.log("Making API request..."); // Debugging
         const response = await fetch(url, options);
         const result = await response.text();
-        console.log("API response text:", result); // Debugging
+        //console.log("API response text:", result); // Debugging
 
         let data;
         try {
