@@ -48,6 +48,13 @@ document.getElementById("login-button").addEventListener("click", function () {
         document.getElementById("profile-pic").src =
           "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541";
         document.getElementById("login-button").innerText = "Login";
+        // Clear form fields in the modal
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("phone").value = "";
+        document.getElementById("age").value = "";
+        document.getElementById("location").value = "";
+        document.getElementById("sex").value = "";
         alert("You have been logged out.");
       })
       .catch((error) => {
