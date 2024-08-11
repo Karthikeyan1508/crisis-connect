@@ -10,12 +10,15 @@ const db = getFirestore(app);
 document.addEventListener('DOMContentLoaded', () => {
     const assistanceTypeSelect = document.getElementById('assistance-type');
     const financialAidSection = document.getElementById('financial-aid-section');
+    const donationAmountSection = document.getElementById('donation-amount-section');
 
     function toggleFinancialAidSection() {
         if (assistanceTypeSelect.value === 'financial') {
             financialAidSection.classList.remove('hidden');
+            donationAmountSection.classList.remove('hidden');
         } else {
             financialAidSection.classList.add('hidden');
+            donationAmountSection.classList.add('hidden');
         }
     }
 
@@ -42,7 +45,6 @@ loc_btn.addEventListener("click", () => {
 async function onSuccess(position) {
     loc_btn.innerText = "Detecting your location...";
     let { latitude, longitude } = position.coords;
-    //console.log(`Latitude: ${latitude}, Longitude: ${longitude}`); // Debugging
 
     const url = `https://map-geocoding.p.rapidapi.com/json?latlng=${latitude}%2C${longitude}`;
     const options = {
@@ -54,21 +56,19 @@ async function onSuccess(position) {
     };
 
     try {
-        //console.log("Making API request..."); // Debugging
         const response = await fetch(url, options);
         const result = await response.text();
-        //console.log("API response text:", result); // Debugging
 
         let data;
         try {
-            data = JSON.parse(result); // Attempt to parse JSON
+            data = JSON.parse(result);
         } catch (parseError) {
             console.error("Error parsing JSON:", parseError);
         }
 
         if (data && data.results && data.results.length > 0) {
-            let locationDetails = data.results[0]; // Assuming results is an array
-            let { formatted_address } = locationDetails; // Example field
+            let locationDetails = data.results[0];
+            let { formatted_address } = locationDetails;
 
             document.getElementById("location").value = formatted_address || 'Unknown Location';
             loc_btn.innerText = "Location detected";
@@ -102,7 +102,7 @@ document.getElementById("registrationForm").addEventListener("submit", async fun
     const email = document.getElementById("email").value;
     const location = document.getElementById("location").value;
     const assistanceType = document.getElementById("assistance-type").value;
-    const donationAmount = assistanceType === 'Financial Aid' ? document.getElementById("donation-amount").value : null;
+    const donationAmount = assistanceType === 'financial' ? document.getElementById("donation-amount").value : null;
 
     // Firestore collection reference
     const volunteersCollection = collection(db, "volunteers");
@@ -120,8 +120,25 @@ document.getElementById("registrationForm").addEventListener("submit", async fun
         document.getElementById("registrationForm").reset();
         // Hide financial aid section after submission
         document.getElementById("financial-aid-section").classList.add('hidden');
+        document.getElementById("donation-amount-section").classList.add('hidden');
     } catch (error) {
         console.error("Error:", error);
         alert("Failed to register.");
     }
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const assistanceTypeDropdown = document.getElementById("assistance-type");
+    const financialAidSection = document.getElementById("financial-aid-section");
+
+    // Hide the financial aid section initially
+    financialAidSection.style.display = "none";
+
+    // Listen for changes in the assistance type dropdown
+    assistanceTypeDropdown.addEventListener("change", function () {
+      if (assistanceTypeDropdown.value === "Financial Aid") {
+        financialAidSection.style.display = "block";
+      } else {
+        financialAidSection.style.display = "none";
+      }
+    });
+  });

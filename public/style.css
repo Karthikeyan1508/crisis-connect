@@ -373,7 +373,7 @@ footer {
 
 /* Accordion Section */
 #accordion{
-    background-color: var(--secondary-bg);
+    background-color: var(--primary-bg);
 }
 .accordion {
     display: flex;
@@ -404,7 +404,7 @@ footer {
     font-size: 14px;
     line-height: 22px;
     font-weight: 300;
-    color: var(--text-active);
+    color: var(--text-color);
     border-top: 1px dashed #ddd;
     padding: 10px 20px 20px;
     transition: max-height 0.3s ease;
@@ -560,5 +560,91 @@ footer {
     }
     #blog {
         padding: 20px;
+    }
+}
+#donate-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 90vh; /* Ensures the section takes up the full viewport height */
+    padding: 0;
+    background-color: var(--secondary-bg); /* Light grey background for the whole section */
+    box-sizing: border-box;
+}
+
+#left-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px; /* Adjusted padding for balance */
+    box-sizing: border-box;
+}
+
+#right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px; /* Consistent padding */
+    box-sizing: border-box;
+    margin-right: 50px;
+}
+
+#donate-image {
+    width: 100%;
+    height: auto;
+    max-width: 600px; /* Optional: Limit the maximum width of the image */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add subtle shadow for depth */
+}
+
+#text-box {
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333; /* Dark grey text color for readability */
+}
+
+#button-group {
+    display: flex;
+    gap: 20px; /* Space between the buttons */
+    justify-content: center;
+    width: 100%;
+}
+
+#register-button, #volunteer-button {
+    padding: 12px 24px; /* Slightly larger padding for a more comfortable button size */
+    font-size: 1rem;
+    color: #FFF;
+    background-color: var(--text-active); /* Green background */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#register-button:hover, #volunteer-button:hover {
+    background-color: var(--text-hover); /* Darker green on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #donate-section {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    #left-column, #right-column {
+        flex: none;
+        width: 100%;
+        padding: 20px;
+    }
+
+    #button-group {
+        flex-direction: column;
+        gap: 10px;
     }
 }
