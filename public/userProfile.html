@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information Form</title>
+    <link rel="stylesheet" href="userProfile.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>User Information</h1>
+    <form id="user-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" disabled>
+
+        <label for="email">Email</label>
+        <input type="text" id="email" disabled>
+
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" required>
+
+        <label for="age">Age</label>
+        <input type="number" id="age" required>
+
+        <label for="location">Location</label>
+        <input type="text" id="location" disabled>
+
+        <label for="sex">Sex</label>
+        <select id="sex" required>
+            <option value="">Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js"></script>
+
+<script>
+    // Your Firebase configuration
+    const firebaseConfig = {
+    apiKey: "AIzaSyAp1j5SIaIz93oFWHGPmOnAJacpUoxhWlw",
+    authDomain: "crisis-connect-4b78f.firebaseapp.com",
+    projectId: "crisis-connect-4b78f",
+    databaseURL: "https://crisis-connect-4b78f-default-rtdb.firebaseio.com/",
+    storageBucket: "crisis-connect-4b78f.appspot.com",
+    messagingSenderId: "354618586100",
+    appId: "1:354618586100:web:417744f1e4be11176affa1",
+    measurementId: "G-RW32KZB74M"
+  };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.getAuth(app);
+    const db = firebase.getFirestore(app);
+
+    // Fetch user info from Firebase Authentication
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            document.getElementById('name').value = user.displayName || '';
+            document.getElementById('email').value = user.email || '';
+
+            // Get user location from GPS
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    document.getElementById('location').value = `Lat: ${position.coords.latitude}, Long: ${position.coords.longitude}`;
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        } else {
+            alert("No user is signed in.");
+        }
+    });
+
+    // Form submission
+    document.getElementById('user-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const userId = auth.currentUser.uid;
+        const phone = document.getElementById('phone').value;
+        const age = document.getElementById('age').value;
+        const location = document.getElementById('location').value;
+        const sex = document.getElementById('sex').value;
+
+        try {
+            await firebase.setDoc(firebase.doc(db, "users", userId), {
+                name: auth.currentUser.displayName,
+                email: auth.currentUser.email,
+                phone: phone,
+                age: age,
+                location: location,
+                sex: sex
+            });
+            alert("User information saved successfully.");
+        } catch (error) {
+            console.error("Error saving user information: ", error);
+        }
+    });
+</script>
+
+</body>
+</html>
