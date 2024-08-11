@@ -6,28 +6,50 @@ Welcome to **Crisis Connect**, your go-to platform for staying safe and informed
 
 In a world where natural disasters can strike without warning, **Crisis Connect** equips you with the tools and information you need to protect yourself and your loved ones. Our platform is designed with one goal in mind: **to save lives**.
 
-## 🚨 Real-Time Alerts
-
-Stay one step ahead with **instant alerts** about natural disasters happening in your area. Whether it's a storm, earthquake, or flood, Crisis Connect will notify you immediately so you can take action.
-
-## 🤝 Join the Volunteer Network
-
-Be a hero in your community! Crisis Connect connects you with local volunteer opportunities during natural disasters. Your help can make all the difference.
-
-## 📱 Robust SMS Notification System
-
-Never miss an update. Our **SMS notification system** ensures that you're always in the loop, even when you're on the go. Get real-time updates on disasters in your area, straight to your phone.
-
-## 💖 Support Those in Need
-
-Make a difference with our secure donation portal. Your contributions go directly to helping those affected by natural disasters. **Every donation counts.**
-
-## 🌦️ 5-Day Weather Forecast
-
-Prepare for the unexpected with our **5-day weather forecast**. Know what’s coming and plan accordingly to stay safe.
+### Key Features:
+- 🚨 **Real-Time Alerts**: Instant alerts about natural disasters happening in your area.
+- 🤝 **Volunteer Network**: Connect with local volunteer opportunities during disasters.
+- 📱 **Robust SMS Notification System**: Real-time updates on disasters straight to your phone.
+- 💖 **Support Those in Need**: Secure donation portal to help those affected by natural disasters.
+- 🌦️ **5-Day Weather Forecast**: Stay prepared with an accurate 5-day weather forecast.
 
 ---
 
-Crisis Connect is more than just a website—it's a lifeline. By bringing together real-time data, community support, and the power of information, we're building a safer, more resilient world. **Join us** in making a difference.
+## 🛠️ Steps to Run Crisis Connect
 
-Stay safe, stay informed, and stay connected with Crisis Connect.
+1. **Initialize the Project**:
+   - Start by initializing a new Node.js project:
+     ```bash
+     npm init
+     ```
+
+2. **Install Required Dependencies**:
+   - Install the necessary packages:
+     ```bash
+     npm install firebase-admin express axios
+     ```
+
+3. **Set Up Firebase**:
+   - Configure Firebase Admin SDK by adding your Firebase service account key to the project.
+
+4. **Create the Server File**:
+   - Ensure `server.js` is properly set up to handle requests, send alerts, and manage volunteer connections.
+
+5. **Run the Application**:
+   - Start the server by running:
+     ```bash
+     node server.js
+     ```
+
+6. **Access the Platform**:
+   - Open your web browser and go to `http://localhost:3000` (or the appropriate URL) to start using Crisis Connect.
+
+---
+
+
+
+8. **Monitor and Update**:
+   - Regularly monitor the platform for updates and issues.
+   - Apply security patches and updates as needed.
+
+Stay safe, stay informed, and stay connected with Crisis Connect!
