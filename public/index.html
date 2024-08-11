@@ -8,6 +8,13 @@
       content="width=device-width, initial-scale=1.0"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="footer-style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+
     <title>CrisisConnect</title>
   </head>
 
@@ -320,7 +327,10 @@
     </section>
     
 
-    <footer>By Team - SCRIPTGAZERS</footer>
+    <div id="footer-placeholder"></div>
+
+
+    <!-- <footer>By Team - SCRIPTGAZERS</footer> -->
 
     <script
       type="module"
@@ -331,5 +341,15 @@
       src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js"
     ></script>
     <script type="module" src="app.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("footer.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("footer-placeholder").innerHTML = data;
+          })
+          .catch((error) => console.error("Error loading footer:", error));
+      });
+    </script>
   </body>
 </html>
