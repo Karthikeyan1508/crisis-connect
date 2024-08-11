@@ -379,7 +379,7 @@ footer {
     font-size: 14px;
     line-height: 22px;
     font-weight: 300;
-    color: #d6d3d3;
+    color: var(--text-active);
     border-top: 1px dashed #ddd;
     padding: 10px 20px 20px;
     transition: max-height 0.3s ease;
