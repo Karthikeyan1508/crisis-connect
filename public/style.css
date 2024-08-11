@@ -735,3 +735,112 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #45A049;
 }
+
+:root {
+  /* lightest green d8f3dc */
+  --primary-bg: #b7e4c7; /* Slightly darker green for primary background */
+  --secondary-bg: #95d5b2; /* Medium green for secondary background */
+  --highlight-bg: #74c69d; /* Darker green for highlights */
+  --text-color: #081c15; /* Very dark green for text */
+  --text-highlight: #40916c; /* Dark green for highlighted text */
+  --text-hover: #2d6a4f; /* Darker green for text on hover */
+  --text-active: #1b4332; /* Deep green for active text */
+  --border-color: #081c15; /* Very dark green for borders */
+  --border-hover: #081c15; /* Same very dark green for border on hover */
+
+  --scrollbar-thumb: rgba(131, 127, 127, 0.8);
+  --scrollbar-thumb-inactive: rgba(233, 233, 233, 0.4);
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+body {
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  max-width: 1170px;
+  margin: auto;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+ul {
+  list-style: none;
+}
+.footer {
+  background-color: #95d5b2;
+  padding: 70px 0;
+}
+.footer-col {
+  width: 25%;
+  padding: 0 15px;
+}
+.footer-col h4 {
+  font-size: 18px;
+  color: #081c15;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+}
+.footer-col h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #2d6a4f;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+.footer-col ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  text-decoration: none;
+  font-weight: 300;
+  color: #081c15;
+  display: block;
+  transition: all 0.3s ease;
+}
+.footer-col ul li a:hover {
+  color: #1b4332;
+  padding-left: 8px;
+}
+.footer-col .social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #081c15;
+  transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover {
+  color: #24262b;
+  background-color: aliceblue;
+}
+
+/*responsive*/
+@media (max-width: 767px) {
+  .footer-col {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 574px) {
+  .footer-col {
+    width: 100%;
+  }
+}

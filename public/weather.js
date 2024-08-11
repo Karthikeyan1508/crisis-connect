@@ -4,7 +4,7 @@ const locationBtn = document.querySelector(".location-btn");
 const weatherCardsDiv = document.querySelector(".weather-cards");
 const currentWeatherDiv = document.querySelector(".current-weather");
 
-const API_KEY = "fb0dbb4be3613431687bcf784c278738"; //API key for OpenWeatherMap API
+const API_KEY = "fb0dbb4be3613431687bcf784c278738"; 
 
 const createWeatherCard = (cityName, weatherItem, index) => {
   if (index === 0) {
@@ -86,11 +86,11 @@ const getWeatherDetails = (cityName, lat, lon) => {
 };
 
 const getCityCoordinates = () => {
-  const cityName = cityInput.value.trim(); //Get user entered city name and remove extra spaces
-  if (!cityName) return; //Return if cityName is empty
+  const cityName = cityInput.value.trim(); 
+  if (!cityName) return; 
   const GEOCODING_API_URL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${API_KEY}`;
 
-  //Get entered city coordinates (latitude, longitude and name) from the API response
+  
   fetch(GEOCODING_API_URL)
     .then((res) => res.json())
     .then((data) => {
