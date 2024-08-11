@@ -1,8 +1,8 @@
-# 🌍 Crisis Connect: Empowering Communities, Saving Lives
+#  Crisis Connect: Empowering Communities, Saving Lives
 
 Welcome to **Crisis Connect**, your go-to platform for staying safe and informed during natural calamities. We believe in the power of knowledge and community action to mitigate the impact of disasters. Whether you're looking to educate yourself, volunteer, or support those in need, Crisis Connect is here to help.
 
-## 🌟 Why Crisis Connect?
+##  Why Crisis Connect?
 
 In a world where natural disasters can strike without warning, **Crisis Connect** equips you with the tools and information you need to protect yourself and your loved ones. Our platform is designed with one goal in mind: **to save lives**.
 
@@ -46,10 +46,9 @@ In a world where natural disasters can strike without warning, **Crisis Connect*
 
 ---
 
-
-
-8. **Monitor and Update**:
-   - Regularly monitor the platform for updates and issues.
-   - Apply security patches and updates as needed.
+### Team - SCRIPTGAZERS :
+- Karthikeyan T
+- Keshava Karthik C N
+- Shalom Riona Fernandes
 
 Stay safe, stay informed, and stay connected with Crisis Connect!
