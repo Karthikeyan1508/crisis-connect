@@ -4,12 +4,12 @@ body {
     font-family: 'Inter', 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--primary-bg); /* Updated to primary background color */
-    color: var(--text-color); /* Updated to text color */
+    background-color: var(--primary-bg); 
+    color: var(--text-color); 
 }
 
 header {
-    background-color: var(--highlight-bg); /* Updated to highlight background color */
+    background-color: var(--highlight-bg); 
     color: var(--text-color);
     text-align: center;
     padding: 40px;
@@ -55,7 +55,7 @@ p{
 }
 
 footer {
-    background-color: var(--text-color); /* Updated to text color */
+    background-color: var(--text-color); 
     color: white;
     text-align: center;
     padding: 10px;
@@ -65,15 +65,15 @@ footer {
 }
 
 :root {
-    --primary-bg: #d8f3dc;  /* Slightly darker green for primary background */
-    --secondary-bg: #95D5B2;  /* Medium green for secondary background */
-    --highlight-bg: #74C69D;  /* Darker green for highlights */
-    --text-color: #081C15;  /* Very dark green for text */
-    --text-highlight: #40916C;  /* Dark green for highlighted text */
-    --text-hover: #2D6A4F;  /* Darker green for text on hover */
-    --text-active: #1B4332;  /* Deep green for active text */
-    --border-color: #081C15;  /* Very dark green for borders */
-    --border-hover: #081C15;  /* Same very dark green for border on hover */
+    --primary-bg: #d8f3dc;  
+    --secondary-bg: #95D5B2;  
+    --highlight-bg: #74C69D;  
+    --text-color: #081C15;  
+    --text-highlight: #40916C;  
+    --text-hover: #2D6A4F;  
+    --text-active: #1B4332;  
+    --border-color: #081C15;  
+    --border-hover: #081C15;  
     --scrollbar-thumb: rgba(131, 127, 127, 0.8);
     --scrollbar-thumb-inactive: rgba(233, 233, 233, 0.4);
 }

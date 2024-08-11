@@ -175,7 +175,7 @@ button:hover {
     background-color: var(--text-hover);
 }
 
-/* Media Queries for Responsiveness */
+
 @media (max-width: 1024px) {
     .card {
         width: calc(50% - 20px);

@@ -41,14 +41,65 @@
         <a href="/volunteer.html">Volunteer!</a>
         <a href="/forum.html">Forum</a>
         <a href="#">Contact Us</a>
-        <!-- <button id="loc-btn"></button> -->
+        
         <button id="login-button">Log In</button>
         <img
           id="profile-pic"
           src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541"
           alt="Profile Picture"
         />
+        <div id="userModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>User Information</h3>
+            <form id="user-form">
+              <label for="name">Name</label>
+              <input type="text" id="name" disabled />
+
+              <label for="email">Email</label>
+              <input type="text" id="email" disabled />
+
+              <label for="phone">Phone Number</label>
+              <input type="text" id="phone" required />
+
+              <label for="age">Age</label>
+              <input type="number" id="age" required />
+
+              <label for="location">Location</label>
+              <input type="text" id="location" disabled />
+
+              <label for="sex">Sex</label>
+              <select id="sex" required>
+                <option value="">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
       </div>
+      <script>
+        var modal = document.getElementById("userModal");
+        var profilePic = document.getElementById("profile-pic");
+        var span = document.getElementsByClassName("close")[0];
+
+        profilePic.onclick = function () {
+          modal.style.display = "block";
+        };
+
+        span.onclick = function () {
+          modal.style.display = "none";
+        };
+
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        };
+      </script>
       <div class="hamburger-menu">
         <div class="bar"></div>
         <div class="bar"></div>
@@ -109,22 +160,33 @@
 
     <section id="donate-section">
       <div id="left-column">
-        <img id="donate-image" src="donate.webp" alt="Donate Image">
+        <img id="donate-image" src="donate.webp" alt="Donate Image" />
       </div>
       <div id="right-column">
         <h1>Donate!</h1>
         <div id="text-box">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
         </div>
         <div id="button-group">
-          <button id="register-button" onclick = "window.location.href = '/volunteer.html'">Register / Donate</button>
-          <button id="volunteer-button" onclick = "window.location.href = '/volList.html'">Find Volunteers</button>
+          <button
+            id="register-button"
+            onclick="window.location.href = '/volunteer.html'"
+          >
+            Register / Donate
+          </button>
+          <button
+            id="volunteer-button"
+            onclick="window.location.href = '/volList.html'"
+          >
+            Find Volunteers
+          </button>
         </div>
       </div>
     </section>
-    
-  
-  
+
     <script>
       async function fetchNews() {
         const url =
@@ -190,8 +252,6 @@
 
       fetchNews();
     </script>
-
-   
 
     <section class="hero" id="accordion">
       <div class="accordion">

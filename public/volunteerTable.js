@@ -9,7 +9,7 @@ import { firebaseConfig } from "../firebaseConfig.js";
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Function to fetch data from Firestore
+
 async function fetchVolunteers() {
   const volunteersCollection = collection(db, "volunteers");
   const snapshot = await getDocs(volunteersCollection);
@@ -24,7 +24,7 @@ async function displayVolunteers() {
   const volunteers = await fetchVolunteers();
   const tableBody = document.getElementById("volunteer-table-body");
 
-  // Clear existing table data
+  
   tableBody.innerHTML = "";
 
   volunteers.forEach((volunteer) => {
@@ -47,7 +47,7 @@ async function displayVolunteers() {
     tableBody.appendChild(row);
   });
 
-  // Add event listener to "Clear All" button
+  
   document.getElementById("clear-all-button").addEventListener("click", () => {
     const allCheckboxes = document.querySelectorAll(
       "#volunteer-table tbody tr input.row-checkbox"
@@ -55,7 +55,7 @@ async function displayVolunteers() {
     allCheckboxes.forEach((checkbox) => (checkbox.checked = false));
   });
 
-  // Toggle select/unselect for filtered rows
+  
   document
     .getElementById("select-all-filtered")
     .addEventListener("click", function () {
@@ -66,7 +66,7 @@ async function displayVolunteers() {
         (checkbox) => checkbox.checked
       );
 
-      // Toggle based on current state
+      
       visibleRows.forEach((checkbox) => (checkbox.checked = !allChecked));
     });
 }
@@ -117,14 +117,14 @@ document.getElementById("sms-button").addEventListener("click", async () => {
     rows.forEach((row) => {
       const checkbox = row.querySelector(".row-checkbox");
       if (checkbox.checked) {
-        const contact = row.children[2].textContent.trim(); // Get the contact number
+        const contact = row.children[2].textContent.trim(); 
         selectedContacts.push(contact);
       }
     });
   console.log(selectedContacts)
     if (selectedContacts.length > 0) {
-      // Prepare the data to send
-      const message = "Your message here"; // Customize your message
+      
+      const message = "Your message here"; 
       const data = {
         to: selectedContacts,
         from: 'AcmeInc',

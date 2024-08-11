@@ -2,11 +2,11 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/fireba
 import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 import { firebaseConfig } from "../firebaseConfig.js";
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Handle the dropdown to show/hide the financial aid section
+
 document.addEventListener('DOMContentLoaded', () => {
     const assistanceTypeSelect = document.getElementById('assistance-type');
     const financialAidSection = document.getElementById('financial-aid-section');
@@ -22,16 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Initial call to set the correct state on page load
+    
     toggleFinancialAidSection();
 
-    // Add event listener to dropdown
+    
     assistanceTypeSelect.addEventListener('change', toggleFinancialAidSection);
 });
 
-// Handle location detection
+
 const loc_btn = document.getElementById("loc-btn");
-const RAPIDAPI_KEY = "67ad76fbb9msh66ac2bd2a0c8148p193f12jsn0d94efd42d97"; // Replace with your RapidAPI key
+const RAPIDAPI_KEY = "67ad76fbb9msh66ac2bd2a0c8148p193f12jsn0d94efd42d97"; 
 
 loc_btn.addEventListener("click", () => {
     if (navigator.geolocation) {
@@ -90,10 +90,10 @@ function onError(error) {
     } else {
         loc_btn.innerText = "Something went wrong";
     }
-    loc_btn.removeAttribute("disabled"); // Re-enable the button
+    loc_btn.removeAttribute("disabled"); 
 }
 
-// Handle form submission
+
 document.getElementById("registrationForm").addEventListener("submit", async function (event) {
     event.preventDefault();
 
@@ -104,7 +104,7 @@ document.getElementById("registrationForm").addEventListener("submit", async fun
     const assistanceType = document.getElementById("assistance-type").value;
     const donationAmount = assistanceType === 'financial' ? document.getElementById("donation-amount").value : null;
 
-    // Firestore collection reference
+    
     const volunteersCollection = collection(db, "volunteers");
 
     try {
@@ -118,7 +118,7 @@ document.getElementById("registrationForm").addEventListener("submit", async fun
         });
         alert("Registration successful!");
         document.getElementById("registrationForm").reset();
-        // Hide financial aid section after submission
+        
         document.getElementById("financial-aid-section").classList.add('hidden');
         document.getElementById("donation-amount-section").classList.add('hidden');
     } catch (error) {
@@ -130,10 +130,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const assistanceTypeDropdown = document.getElementById("assistance-type");
     const financialAidSection = document.getElementById("financial-aid-section");
 
-    // Hide the financial aid section initially
+    
     financialAidSection.style.display = "none";
 
-    // Listen for changes in the assistance type dropdown
+    
     assistanceTypeDropdown.addEventListener("change", function () {
       if (assistanceTypeDropdown.value === "Financial Aid") {
         financialAidSection.style.display = "block";

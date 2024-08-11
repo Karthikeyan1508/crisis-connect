@@ -53,7 +53,7 @@ input:focus, select:focus {
     background-color: #fff;
 }
 
-/* Container for aligning amount input and donate button */
+
 .amount-donate-container {
     display: flex;
     justify-content: center;
@@ -62,19 +62,19 @@ input:focus, select:focus {
     margin-bottom: 15px;
 }
 
-/* Adjust the donation amount input */
+
 #donation-amount {
     text-align: center;
-    width: 60%; /* Adjust width as needed */
-    margin-right: 10px; /* Space between input and button */
-    padding: 10px; /* Ensure padding matches the button */
-    box-sizing: border-box; /* Include padding and border in element's width and height */
-    height: 40px; /* Set a fixed height */
-    font-size: 16px; /* Ensure font size matches the button */
+    width: 60%; 
+    margin-right: 10px; 
+    padding: 10px; 
+    box-sizing: border-box; 
+    height: 40px; 
+    font-size: 16px; 
     border: 1px solid var(--border-color);
     border-radius: 4px;
 }
-/* Scrollbar styles */
+
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -89,7 +89,7 @@ input:focus, select:focus {
 ::-webkit-scrollbar-thumb:window-inactive {
     background: var(--scrollbar-thumb-inactive);
 }
-/* Adjust the donate button */
+
 #donate-button {
     padding: 10px 20px;
     background-color: var(--text-highlight);
@@ -97,29 +97,29 @@ input:focus, select:focus {
     color: #fff;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px; /* Ensure font size matches the input */
-    height: 40px; /* Set a fixed height to match the input */
-    line-height: 20px; /* Align text vertically within the button */
+    font-size: 16px; 
+    height: 40px; 
+    line-height: 20px; 
     display: flex;
-    align-items: center; /* Center text vertically */
-    justify-content: center; /* Center text horizontally */
-    box-sizing: border-box; /* Include padding and border in element's width and height */
+    align-items: center; 
+    justify-content: center; 
+    box-sizing: border-box; 
 }
 
-/* Button hover effect */
+
 #donate-button:hover {
     background-color: var(--text-hover);
 }
 
 
 
-/* Adjust padding for the select dropdown */
+
 select {
     padding-right: 40px; 
  
 }
 
-/* Adjust button styles */
+
 button {
     padding: 12px 16px;
     background-color: var(--text-highlight);
@@ -143,21 +143,21 @@ button {
     margin-bottom: 15px;
 }
 
-/* Adjust the donation amount input */
+
 #donation-amount {
     text-align: center;
-    width: 50%; /* Adjust width as needed */
-    /* margin-right: 1px; Space between input and button */
-    padding: 10px; /* Ensure padding matches the button */
-    box-sizing: border-box; /* Include padding and border in element's width and height */
+    width: 50%; 
+    
+    padding: 10px; 
+    box-sizing: border-box; 
     margin-left: 25px;
-    height: 40px; /* Set a fixed height */
-    font-size: 16px; /* Ensure font size matches the button */
+    height: 40px; 
+    font-size: 16px; 
     border: 1px solid var(--border-color);
     border-radius: 4px;
 }
 
-/* Adjust the donate button */
+
 #donate-button {
     padding: 10px 20px;
     background-color: var(--text-highlight);
@@ -166,16 +166,16 @@ button {
     border-radius: 4px;
     cursor: pointer;
     margin-top: 5px;
-    font-size: 16px; /* Ensure font size matches the input */
-    height: 40px; /* Set a fixed height to match the input */
-    line-height: 20px; /* Align text vertically within the button */
+    font-size: 16px; 
+    height: 40px; 
+    line-height: 20px; 
     display: flex;
-    align-items: center; /* Center text vertically */
-    justify-content: center; /* Center text horizontally */
-    box-sizing: border-box; /* Include padding and border in element's width and height */
+    align-items: center; 
+    justify-content: center; 
+    box-sizing: border-box; 
 }
 
-/* Button hover effect */
+
 #donate-button:hover {
     background-color: var(--text-hover);
 }
@@ -196,7 +196,7 @@ button:disabled {
     display: none;
 }
 
-/* Media queries */
+
 /* @media (max-width: 768px) {
     .container {
         padding: 15px;

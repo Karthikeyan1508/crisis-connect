@@ -1,22 +1,22 @@
 :root {
   --primary-bg: #b7e4c7;
-  /* Slightly darker green for primary background */
+
   --secondary-bg: #95d5b2;
-  /* Medium green for secondary background */
+
   --highlight-bg: #74c69d;
-  /* Darker green for highlights */
+
   --text-color: #081c15;
-  /* Very dark green for text */
+
   --text-highlight: #40916c;
-  /* Dark green for highlighted text */
+
   --text-hover: #2d6a4f;
-  /* Darker green for text on hover */
+
   --text-active: #1b4332;
-  /* Deep green for active text */
+
   --border-color: #081c15;
-  /* Very dark green for borders */
+
   --border-hover: #081c15;
-  /* Same very dark green for border on hover */
+
 
   --scrollbar-thumb: rgba(131, 127, 127, 0.8);
   --scrollbar-thumb-inactive: rgba(233, 233, 233, 0.4);
@@ -24,7 +24,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
-/* Scrollbar styles */
+
 ::-webkit-scrollbar {
   width: 8px;
 }

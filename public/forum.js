@@ -14,7 +14,7 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const provider = new GoogleAuthProvider();
 
-// Function to get user display name
+
 async function getUserDisplayName() {
   const user = auth.currentUser;
   if (user) {
@@ -49,7 +49,7 @@ document.getElementById('upload-button').addEventListener('click', async () => {
         location,
         image: `data:${imageMimeType};base64,${base64Image}`, 
         description,
-        author: displayName, // Save display name in the post
+        author: displayName, 
         timestamp: new Date()
       });
 
