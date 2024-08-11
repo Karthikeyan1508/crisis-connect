@@ -124,7 +124,7 @@ document.getElementById("sms-button").addEventListener("click", async () => {
   console.log(selectedContacts)
     if (selectedContacts.length > 0) {
       
-      const message = "Your message here"; 
+      const message = "Emergency Alert: A natural disaster is occurring nearby. Your help is urgently needed. Please take action and assist those in need. Stay safe! "; 
       const data = {
         to: selectedContacts,
         from: 'AcmeInc',
@@ -134,7 +134,7 @@ document.getElementById("sms-button").addEventListener("click", async () => {
       try {
         const response = await axios.post('https://gateway.seven.io/api/sms', new URLSearchParams(data), {
           headers: {
-            'X-Api-Key': '97F81283D70d6B7b5C11Bd69d2c30f230590DD083fa73833E4BA900719f9db8f',
+            'X-Api-Key': '0bD62409a7312a38bDcFd0B02c41292f2Ee5BE29c5a22f4C56f180C7e3E0FF64',
             'Accept': 'application/json',
           },
         });

@@ -821,3 +821,91 @@ button[type="submit"]:hover {
     }
   }
   
+  .service {
+    padding: 100px 0;
+  }
+  
+  .max-width {
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 45px;
+    margin: auto;
+  }
+  
+  .max-width h1 {
+    text-align: center;
+    position: relative;
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+  }
+  
+  .max-width h1::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 3px;
+    background: var(--text-active);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .car {
+    padding: 50px 25px;
+    width: calc(25% - 20px);
+    border-radius: 6px;
+    background: var(--highlight-bg);
+    text-align: center;
+    user-select: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-bottom: 20px;
+  }
+  
+  .car:hover {
+    background-color: var(--highlight-bg);
+    transform: scale(1.05);
+  }
+  
+  .box i {
+    font-size: 50px;
+    color: var(--text-highlight);
+    transition: color 0.3s ease;
+  }
+  
+  .car:hover .box i {
+    color: var(--text-active);
+  }
+  
+  .box h3 {
+    font-size: 25px;
+    padding: 10px 0 7px;
+  }
+  
+  .box p {
+    font-size: 16px;
+    color: var(--text-hover);
+  }
+  
+  @media screen and (max-width: 1190px) {
+    .max-width {
+      padding: 0 25px;
+    }
+    .car {
+      width: calc(50% - 10px);
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .car {
+      width: 100%;
+    }
+  }
+  
