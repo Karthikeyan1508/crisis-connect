@@ -30,6 +30,9 @@
           <strong>Crisis Connect</strong>
         </div>
       </div>
+      <a href="tel:112">
+        <button class="sos-button">SOS</button>
+      </a>
       <div class="nav-links">
         <a href="#">Home</a>
         <a href="#">Features</a>
@@ -60,7 +63,7 @@
       </script>
     </nav>
 
-      <section class="hero" id="hero">
+    <section class="hero" id="hero">
       <h1>CrisisConnect</h1>
 
       <h1 id="hero-head"></h1>
@@ -95,75 +98,78 @@
     </section>
 
     <section id="blog">
-        <div class="blog-heading">
-            <span>Disaster Coverage</span>
-            <h3>Incidents Reported</h3>
-        </div>
+      <div class="blog-heading">
+        <span>Disaster Coverage</span>
+        <h3>Incidents Reported</h3>
+      </div>
 
-        <div id="blog-container" class="blog-container"></div>
+      <div id="blog-container" class="blog-container"></div>
     </section>
 
     <script>
-        async function fetchNews() {
-            const url = "https://newsdata.io/api/1/news?apikey=pub_50578c1c61acdd7ee65508179ce4d05815e81&qInTitle=natural%20disasters&country=in";
-            const options = { method: "GET" };
+      async function fetchNews() {
+        const url =
+          "https://newsdata.io/api/1/news?apikey=pub_50578c1c61acdd7ee65508179ce4d05815e81&qInTitle=natural%20disasters&country=in";
+        const options = { method: "GET" };
 
-            try {
-                const response = await fetch(url, options);
-                const result = await response.json();
-                console.log(result)
-                displayNews(result);
-            } catch (error) {
-                console.error("Error fetching news:", error);
-                document.getElementById("blog-container").textContent = "Failed to load news articles.";
-            }
+        try {
+          const response = await fetch(url, options);
+          const result = await response.json();
+          console.log(result);
+          displayNews(result);
+        } catch (error) {
+          console.error("Error fetching news:", error);
+          document.getElementById("blog-container").textContent =
+            "Failed to load news articles.";
         }
+      }
 
-        function displayNews(news) {
-            const blogContainer = document.getElementById("blog-container");
-            blogContainer.innerHTML = "";
+      function displayNews(news) {
+        const blogContainer = document.getElementById("blog-container");
+        blogContainer.innerHTML = "";
 
-            if (news.results && news.results.length > 0) {
-                news.results.slice(1, 4).forEach((article, index) => {
-                    const blogBox = document.createElement("div");
-                    blogBox.classList.add("blog-box");
+        if (news.results && news.results.length > 0) {
+          news.results.slice(1, 4).forEach((article, index) => {
+            const blogBox = document.createElement("div");
+            blogBox.classList.add("blog-box");
 
-                    const blogImgDiv = document.createElement("div");
-                    blogImgDiv.classList.add("blog-img");
-                    const blogImg = document.createElement("img");
-                    blogImg.src = article.image_url || "https://placehold.co/600x400";
-                    blogImg.alt = "Blog";
-                    blogImgDiv.appendChild(blogImg);
+            const blogImgDiv = document.createElement("div");
+            blogImgDiv.classList.add("blog-img");
+            const blogImg = document.createElement("img");
+            blogImg.src = article.image_url || "https://placehold.co/600x400";
+            blogImg.alt = "Blog";
+            blogImgDiv.appendChild(blogImg);
 
-                    const blogTextDiv = document.createElement("div");
-                    blogTextDiv.classList.add("blog-text");
-                    const blogSource = document.createElement("span");
-                    blogSource.textContent = article.source_id || "Unknown Source";
-                    const blogTitle = document.createElement("a");
-                    // blogTitle.href = article.url;
-                    blogTitle.textContent = article.title;
-                    blogTitle.classList.add("blog-title");
-                    const blogDesc = document.createElement("p");
-                    blogDesc.textContent = article.description || "No description available.";
-                    const readMore = document.createElement("a");
-                    readMore.href = article.source_url;
-                    readMore.textContent = "Read More...";
+            const blogTextDiv = document.createElement("div");
+            blogTextDiv.classList.add("blog-text");
+            const blogSource = document.createElement("span");
+            blogSource.textContent = article.source_id || "Unknown Source";
+            const blogTitle = document.createElement("a");
+            // blogTitle.href = article.url;
+            blogTitle.textContent = article.title;
+            blogTitle.classList.add("blog-title");
+            const blogDesc = document.createElement("p");
+            blogDesc.textContent =
+              article.description || "No description available.";
+            const readMore = document.createElement("a");
+            readMore.href = article.source_url;
+            readMore.textContent = "Read More...";
 
-                    blogTextDiv.appendChild(blogSource);
-                    blogTextDiv.appendChild(blogTitle);
-                    blogTextDiv.appendChild(blogDesc);
-                    blogTextDiv.appendChild(readMore);
+            blogTextDiv.appendChild(blogSource);
+            blogTextDiv.appendChild(blogTitle);
+            blogTextDiv.appendChild(blogDesc);
+            blogTextDiv.appendChild(readMore);
 
-                    blogBox.appendChild(blogImgDiv);
-                    blogBox.appendChild(blogTextDiv);
-                    blogContainer.appendChild(blogBox);
-                });
-            } else {
-                blogContainer.textContent = "No news articles found.";
-            }
+            blogBox.appendChild(blogImgDiv);
+            blogBox.appendChild(blogTextDiv);
+            blogContainer.appendChild(blogBox);
+          });
+        } else {
+          blogContainer.textContent = "No news articles found.";
         }
+      }
 
-        fetchNews();
+      fetchNews();
     </script>
 
     <section class="hero" id="gallery">
