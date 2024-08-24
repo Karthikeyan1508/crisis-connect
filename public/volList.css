@@ -7,6 +7,27 @@ body {
     padding: 0;
     color: #333;
 }
+#alert-box {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px;
+    background-color: white;
+    border: 2px solid #ffcccc; /* Lighter red border */
+    border-radius: 8px;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1000;
+    width: 80%;
+    max-width: 600px;
+    transition: background-color 3s ease-in-out, border-color 3s ease-in-out;
+}
+
+.hidden {
+    display: none;
+}
 
 ::-webkit-scrollbar {
     width: 8px;

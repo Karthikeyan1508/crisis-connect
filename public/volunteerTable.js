@@ -9,6 +9,15 @@ import { firebaseConfig } from "../firebaseConfig.js";
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+window.onload = function() {
+  const alertBox = document.getElementById('alert-box');
+  alertBox.classList.remove('hidden');
+  
+  setTimeout(() => {
+      alertBox.classList.add('hidden');
+  }, 3000);
+};
+
 
 async function fetchVolunteers() {
   const volunteersCollection = collection(db, "volunteers");
@@ -134,7 +143,7 @@ document.getElementById("sms-button").addEventListener("click", async () => {
       try {
         const response = await axios.post('https://gateway.seven.io/api/sms', new URLSearchParams(data), {
           headers: {
-            'X-Api-Key': '0bD62409a7312a38bDcFd0B02c41292f2Ee5BE29c5a22f4C56f180C7e3E0FF64',
+            'X-Api-Key': '06928F134aeB179DACb7d6FBfEE8EBb4D245eB3710d97fCcd9Ad733058736d82',
             'Accept': 'application/json',
           },
         });
