@@ -9,6 +9,14 @@ import { firebaseConfig } from "../firebaseConfig.js";
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+window.onload = function() {
+  const alertBox = document.getElementById('alert-box');
+  alertBox.classList.remove('hidden');
+  
+  setTimeout(() => {
+      alertBox.classList.add('hidden');
+  }, 10000);
+};
 
 
 async function fetchVolunteers() {
